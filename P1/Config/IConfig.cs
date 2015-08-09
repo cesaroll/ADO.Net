@@ -1,12 +1,13 @@
 ﻿using System.Data;
 using P1.Enity;
+using P1.Factory;
 
 namespace P1.Config
 {
-    public interface IConfig
+    public interface IConfig<T>
     {
-        string GetSelectAll();
+        string GetSelectAllQuery();
 
-        IEntity GetEntityFromReader(IDataReader dr);
+        T GetEntityFromReader(IDataReader dr);
     }
 }

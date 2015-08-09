@@ -1,4 +1,7 @@
-﻿namespace P1.Enity
+﻿using System;
+using P1.Config;
+
+namespace P1.Enity
 {
     public class Employee : IEntity
     {
@@ -14,5 +17,6 @@
         {
             return string.Format("{0:###} {1,15} {2,15} {3,15:C}", ID, Name, Gender, AnnualSalary);
         }
+
     }
 }

@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using P1.Config;
 using P1.Enity;
 using P1.Util;
 
 namespace P1.Factory
 {
-    public class Factory<E, C> : IFactory  where E : IEntity, new() where C : Config.Config, new() 
+    public class Factory<T> : IFactory<T>  where T : IEntity, new() 
     {
-        private C _config;
+        private IConfig<T> _config;
 
         #region Properties
         
@@ -25,7 +26,7 @@ namespace P1.Factory
         public Factory(IDbProxy dbProxy)
         {
             DbProxy = dbProxy;
-            _config = new C();
+            _config = ConfigUtil.GetConfig<T>();
         }
 
         #endregion
@@ -33,16 +34,16 @@ namespace P1.Factory
 
         #region Db Operations
 
-        public IEnumerable<E> RetrieveAll()
+        public virtual IEnumerable<T> RetrieveAll()
         {
             //Employee Collection
-            var collection = new List<E>();
+            var collection = new List<T>();
 
             using (var conn = DbProxy.GetConnection())
             {
                 var cmd = DbProxy.GetCommand();
 
-                cmd.CommandText = _config.GetSelectAll();
+                cmd.CommandText = _config.GetSelectAllQuery();
                 cmd.Connection = conn;
 
                 conn.Open();
@@ -51,7 +52,7 @@ namespace P1.Factory
 
                 while (rdr.Read())
                 {
-                    collection.Add((E)_config.GetEntityFromReader(rdr));
+                    collection.Add(_config.GetEntityFromReader(rdr));
 
                 }
 

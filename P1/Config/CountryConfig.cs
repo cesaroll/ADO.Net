@@ -4,15 +4,26 @@ using P1.Enity;
 
 namespace P1.Config
 {
-    public class CountryConfig : Config
+    public class CountryConfig : Config<Country>
     {
-        public override string GetSelectAll()
+        private static readonly IConfig<Country> _instance = new CountryConfig();
+
+        private CountryConfig()
+        {
+        }
+
+        public static IConfig<Country> Instance
+        {
+            get { return _instance; }
+        }
+
+        public override string GetSelectAllQuery()
         {
             return "SELECT * FROM Country ORDER BY CountryId";
         }
 
 
-        public override IEntity GetEntityFromReader(IDataReader dr)
+        public override Country GetEntityFromReader(IDataReader dr)
         {
             return new Country()
             {

@@ -18,32 +18,29 @@ namespace P1
 
         static void Main(string[] args)
         {
-
-            //var empFact = new EmployeeFactory();
-            var empFact = new Factory<Employee, EmployeeConfig>();
+            var empFact = new Factory<Employee>();
 
             var employees = empFact.RetrieveAll();
 
 
-            PrintiEntityEnum(employees, "Employees:");
+            PrintEntityEnum(employees, "Employees:");
             
 
             var filter = from emp in employees
                          where emp.Name == "Cesar"
                          select emp;
 
-            PrintiEntityEnum(filter, "Employees Filtered:");
+            PrintEntityEnum(filter, "Employees Filtered:");
 
-
-            //var countryFact = new CountryFactory();
-            var countryFact = new Factory<Country, CountryConfig>();
+            
+            var countryFact = new Factory<Country>();
             var countries = countryFact.RetrieveAll();
-            PrintiEntityEnum(countries, "Countries:");
+            PrintEntityEnum(countries, "Countries:");
 
 
         }
 
-        public static void PrintiEntityEnum(IEnumerable<IEntity> entities, string msg)
+        public static void PrintEntityEnum(IEnumerable<IEntity> entities, string msg)
         {
             Console.WriteLine(msg+"\n");
 
