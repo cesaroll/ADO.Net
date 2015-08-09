@@ -7,7 +7,7 @@ namespace P1.Util
     {
         public IDbConnection GetConnection()
         {
-            return new OracleConnection(DBUtil.ORA_CONNECTION_STRING);
+            return new OracleConnection(DBUtil.GetWcfConnectionString());
         }
 
         public IDbCommand GetCommand()

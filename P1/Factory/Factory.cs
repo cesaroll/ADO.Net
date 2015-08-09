@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using P1.Config;
 using P1.Enity;
 using P1.Util;
@@ -54,7 +55,7 @@ namespace P1.Factory
 
                 }
 
-                conn.Close();
+                //conn.Close(); Using takes care of closing the connection
             }
 
             return collection;

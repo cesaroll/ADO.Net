@@ -8,7 +8,7 @@ namespace P1.Util
     {
         public IDbConnection GetConnection()
         {
-            return new SqlConnection(DBUtil.SQL_CONNECTION_STRING);
+            return new SqlConnection(DBUtil.GetWcfConnectionString());
         }
 
         public IDbCommand GetCommand()
