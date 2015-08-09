@@ -48,8 +48,6 @@
     <Compile Include="Config\IConfig.cs" />
     <Compile Include="Entity\Country.cs" />
     <Compile Include="Entity\IEntity.cs" />
-    <Compile Include="Factory\CountryFactory.cs" />
-    <Compile Include="Factory\EmployeeFactory.cs" />
     <Compile Include="Factory\Factory.cs" />
     <Compile Include="Factory\IFactory.cs" />
     <Compile Include="Util\DBUtil.cs" />
