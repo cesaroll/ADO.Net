@@ -6,9 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Input;
+using Microsoft.Practices.Unity;
 using P1.Config;
 using P1.Enity;
 using P1.Factory;
+using P1.Util;
 
 
 namespace P1
@@ -18,7 +20,12 @@ namespace P1
 
         static void Main(string[] args)
         {
-            var empFact = new Factory<Employee>(EmployeeConfig.Instance);
+            var unityContainer = RegisterUnityContainer();
+
+            //var empFact = new Factory<Employee>(EmployeeConfig.Instance);
+
+            //Using Unity
+            var empFact = unityContainer.Resolve<Factory<Employee>>();
 
             var employees = empFact.RetrieveAll();
 
@@ -48,6 +55,19 @@ namespace P1
             }
 
 
+        }
+
+        private static UnityContainer RegisterUnityContainer()
+        {
+            var uc = new UnityContainer();
+
+            uc.RegisterInstance(DBUtil.DeafultDbProxy);
+
+            uc.RegisterInstance(EmployeeConfig.Instance);
+
+            uc.RegisterType<Factory<Employee>>();
+
+            return uc;
         }
 
 
