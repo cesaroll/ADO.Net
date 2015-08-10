@@ -8,30 +8,29 @@ using P1.Util;
 
 namespace P1.Factory
 {
-    public class Factory<T> : IFactory<T>  where T : IEntity, new() 
+    public class Factory<T> : IFactory<T> where T : IEntity, new() 
     {
-        private IConfig<T> _config;
-
         #region Properties
+
+        private IConfig<T> Config { get; set; }
         
         protected IDbProxy DbProxy { get; set; }
 
         #endregion
 
         #region Constructors
-        public Factory() : this(new SQLProxy())
+        public Factory(IConfig<T> config ) : this(DBUtil.DeafultDbProxy, config)
         {
         }
 
-        public Factory(IDbProxy dbProxy)
+        public Factory(IDbProxy dbProxy, IConfig<T> config)
         {
             DbProxy = dbProxy;
-            _config = ConfigUtil.GetConfig<T>();
+            Config = config;
         }
 
         #endregion
-
-
+        
         #region Db Operations
 
         public virtual IEnumerable<T> RetrieveAll()
@@ -43,7 +42,7 @@ namespace P1.Factory
             {
                 var cmd = DbProxy.GetCommand();
 
-                cmd.CommandText = _config.GetSelectAllQuery();
+                cmd.CommandText = Config.GetSelectAllQuery();
                 cmd.Connection = conn;
 
                 conn.Open();
@@ -52,7 +51,7 @@ namespace P1.Factory
 
                 while (rdr.Read())
                 {
-                    collection.Add(_config.GetEntityFromReader(rdr));
+                    collection.Add(Config.GetEntityFromReader(rdr));
 
                 }
 
@@ -65,6 +64,19 @@ namespace P1.Factory
 
         #endregion
 
+
+        #region Other Operations
+
+        public virtual IEnumerable<string> PrintAll(IEnumerable<T> items)
+        {
+            return items.Select(item => Config.PrintableString(item));
+//            foreach (var item in items)
+//            {
+//                yield return Config.PrintableString(item);
+//            }
+        }
+
+        #endregion
 
     }
 }

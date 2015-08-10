@@ -18,37 +18,36 @@ namespace P1
 
         static void Main(string[] args)
         {
-            var empFact = new Factory<Employee>();
+            var empFact = new Factory<Employee>(EmployeeConfig.Instance);
 
             var employees = empFact.RetrieveAll();
 
-
-            PrintEntityEnum(employees, "Employees:");
+            Console.WriteLine("Employees:\n");
+            foreach (var item in empFact.PrintAll(employees))
+            {
+                Console.WriteLine(item);
+            }
             
 
             var filter = from emp in employees
                          where emp.Name == "Cesar"
                          select emp;
-
-            PrintEntityEnum(filter, "Employees Filtered:");
-
-            
-            var countryFact = new Factory<Country>();
-            var countries = countryFact.RetrieveAll();
-            PrintEntityEnum(countries, "Countries:");
-
-
-        }
-
-        public static void PrintEntityEnum(IEnumerable<IEntity> entities, string msg)
-        {
-            Console.WriteLine(msg+"\n");
-
-            foreach (var entity in entities)
+            Console.WriteLine("\nEmployees Filtered:\n");
+            foreach (var item in empFact.PrintAll(filter))
             {
-                Console.WriteLine(entity);
+                Console.WriteLine(item);
             }
-            Console.WriteLine("\n\n");
+            
+            var countryFact = new Factory<Country>(CountryConfig.Instance);
+            var countries = countryFact.RetrieveAll();
+
+            Console.WriteLine("\nCountries:\n");
+            foreach (var item in countryFact.PrintAll(countries))
+            {
+                Console.WriteLine(item);
+            }
+
+
         }
 
 

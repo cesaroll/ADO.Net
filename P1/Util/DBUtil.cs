@@ -4,9 +4,15 @@ namespace P1.Util
 {
     public class DBUtil
     {
-        public static string GetWcfConnectionString()
+        public static string WcfConnectionString
         {
-            return ConfigurationManager.ConnectionStrings["WCF"].ConnectionString;
+            get { return ConfigurationManager.ConnectionStrings["WCF"].ConnectionString; }
+        }
+
+        //Default Db proxy
+        public static IDbProxy DeafultDbProxy
+        {
+            get { return SQLProxy.Instance; }
         }
 
     }

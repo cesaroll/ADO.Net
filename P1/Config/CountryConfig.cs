@@ -6,6 +6,7 @@ namespace P1.Config
 {
     public class CountryConfig : Config<Country>
     {
+        #region Singleton Class
         private static readonly IConfig<Country> _instance = new CountryConfig();
 
         private CountryConfig()
@@ -16,6 +17,7 @@ namespace P1.Config
         {
             get { return _instance; }
         }
+        #endregion
 
         public override string GetSelectAllQuery()
         {
@@ -32,5 +34,9 @@ namespace P1.Config
             };
         }
 
+        public override string PrintableString(Country country)
+        {
+            return string.Format("{0:###} {1,15}", country.ID, country.Name);
+        }
     }
 }

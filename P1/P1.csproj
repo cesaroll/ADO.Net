@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\Config.cs" />
-    <Compile Include="Config\ConfigUtil.cs" />
     <Compile Include="Config\CountryConfig.cs" />
     <Compile Include="Config\EmployeeConfig.cs" />
     <Compile Include="Config\IConfig.cs" />
@@ -61,7 +60,9 @@
     <Compile Include="Util\SQLProxy.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -6,6 +6,7 @@ namespace P1.Config
 {
     public class EmployeeConfig : Config<Employee>
     {
+        #region Singleton Class
         private static readonly IConfig<Employee> _instance = new EmployeeConfig();
 
         private EmployeeConfig()
@@ -16,6 +17,7 @@ namespace P1.Config
         {
             get { return _instance; }
         }
+        #endregion
 
         public override string GetSelectAllQuery()
         {
@@ -33,5 +35,9 @@ namespace P1.Config
             };
         }
 
+        public override string PrintableString(Employee emp)
+        {
+            return string.Format("{0:###} {1,15} {2,15} {3,15:C}", emp.ID, emp.Name, emp.Gender, emp.AnnualSalary);
+        }
     }
 }

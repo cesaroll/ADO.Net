@@ -4,10 +4,13 @@ using P1.Factory;
 
 namespace P1.Config
 {
-    public interface IConfig<T>
+    public interface IConfig<T> where T : IEntity, new()
     {
         string GetSelectAllQuery();
 
         T GetEntityFromReader(IDataReader dr);
+
+        string PrintableString(T entity);
+
     }
 }
