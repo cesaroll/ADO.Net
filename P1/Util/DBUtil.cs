@@ -1,19 +1,36 @@
 ﻿using System.Configuration;
+using System.Data.SqlClient;
 
 namespace P1.Util
 {
-    public class DBUtil
+    public static class DBUtil
     {
         public static string WcfConnectionString
         {
             get { return ConfigurationManager.ConnectionStrings["WCF"].ConnectionString; }
         }
 
-        //Default Db proxy
-        public static IDbProxy DeafultDbProxy
+
+        #region Connection
+
+        /// <summary>
+        /// When using New DB Connection you are responsible for closing it.
+        /// </summary>
+        public static SqlConnection DbConnection
         {
-            get { return SQLProxy.Instance; }
+            get { return new SqlConnection(DBUtil.WcfConnectionString); }
         }
+
+        #endregion
+
+        #region Command
+
+        public static SqlCommand DbCommand
+        {
+            get { return new SqlCommand(); }
+        }
+        #endregion
+
 
     }
 }

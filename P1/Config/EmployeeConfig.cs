@@ -19,12 +19,12 @@ namespace P1.Config
         }
         #endregion
 
-        public override string GetSelectAllQuery()
+        public override string SelectAllQuery
         {
-            return "SELECT * FROM Employee ORDER BY Id";
+            get { return "SELECT * FROM Employee"; }
         }
 
-        public override Employee GetEntityFromReader(IDataReader dr)
+        public override Employee EntityFromReader(IDataReader dr)
         {
             return new Employee()
             {

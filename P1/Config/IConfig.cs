@@ -6,9 +6,11 @@ namespace P1.Config
 {
     public interface IConfig<T> where T : IEntity, new()
     {
-        string GetSelectAllQuery();
+        string SelectAllQuery { get; }
 
-        T GetEntityFromReader(IDataReader dr);
+        string PrimaryKey { get; }
+
+        T EntityFromReader(IDataReader dr);
 
         string PrintableString(T entity);
 

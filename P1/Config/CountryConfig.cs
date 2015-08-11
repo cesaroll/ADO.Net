@@ -19,13 +19,17 @@ namespace P1.Config
         }
         #endregion
 
-        public override string GetSelectAllQuery()
+        public override string SelectAllQuery
         {
-            return "SELECT * FROM Country ORDER BY CountryId";
+            get { return "SELECT * FROM Country ORDER BY CountryId"; }
         }
 
+        public override string PrimaryKey
+        {
+            get { return "CountryId"; }
+        }
 
-        public override Country GetEntityFromReader(IDataReader dr)
+        public override Country EntityFromReader(IDataReader dr)
         {
             return new Country()
             {
