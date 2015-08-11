@@ -1,5 +1,6 @@
 ﻿using System;
 using P1.Config;
+using P1.Interface.Entity;
 
 namespace P1.Enity
 {

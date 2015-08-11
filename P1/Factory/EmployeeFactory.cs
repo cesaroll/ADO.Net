@@ -5,12 +5,18 @@ using System.Data.SqlClient;
 using System.Text;
 using P1.Config;
 using P1.Enity;
+using P1.Interface.Config;
+using P1.Interface.Factory;
 using P1.Util;
 
 namespace P1.Factory
 {
-    public class EmployeeFactory : Factory<Employee>
+    public class EmployeeFactory : Factory<Employee>, IEmployeeFactory
     {
+        public EmployeeFactory() : this(DependencyFactory.Resolve<IConfig<Employee>>())
+        {
+            
+        }
         public EmployeeFactory(IConfig<Employee> config) : base(config)
         {
         }

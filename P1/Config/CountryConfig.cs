@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using P1.Enity;
+using P1.Interface.Config;
 
 namespace P1.Config
 {

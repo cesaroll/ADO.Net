@@ -6,6 +6,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using P1.Config;
 using P1.Enity;
+using P1.Interface.Config;
+using P1.Interface.Entity;
+using P1.Interface.Factory;
 using P1.Util;
 
 namespace P1.Factory
@@ -83,7 +86,7 @@ namespace P1.Factory
             return entity;
         }
 
-        public virtual IEnumerable<T> RetieveByParameter(IEnumerable<KeyValuePair<string, object>> parms)
+        public virtual IEnumerable<T> RetrieveByParameter(IEnumerable<KeyValuePair<string, object>> parms)
         {
             var queryBuilder = new StringBuilder(Config.SelectAllQuery).Append(" WHERE ");
             var and = " ";

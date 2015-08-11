@@ -5,6 +5,9 @@ using Microsoft.Practices.Unity;
 using P1.Config;
 using P1.Enity;
 using P1.Factory;
+using P1.Interface.Factory;
+using P1.Interface.Util;
+using P1.Util;
 
 namespace P1
 {
@@ -13,13 +16,8 @@ namespace P1
 
         static void Main(string[] args)
         {
-            var unityContainer = RegisterUnityContainer();
-
-            //var empFact = new Factory<Employee>(EmployeeConfig.Instance);
-
-            //Using Unity
-            //var empFact = unityContainer.Resolve<Factory<Employee>>();
-            var empFact = unityContainer.Resolve<EmployeeFactory>();
+            
+            var empFact = DependencyFactory.Resolve<IEmployeeFactory>(); //Get Basic Employee Factory
 
             var employees = empFact.RetrieveAll();
 
@@ -39,13 +37,16 @@ namespace P1
                 Console.WriteLine(item);
             }
 
+            //Get Logging Employee Factory
+            empFact = DependencyFactory.Resolve<IEmployeeFactory>("Logging");
+
             //Retrieve By parameter
             var parms = new List<KeyValuePair<string, object>>();
 
             parms.Add(new KeyValuePair<string, object>("Name", "Cesar"));
             parms.Add(new KeyValuePair<string, object>("Gender", "Male"));
 
-            var employeesbyParm =  empFact.RetieveByParameter(parms);
+            var employeesbyParm =  empFact.RetrieveByParameter(parms);
 
             Console.WriteLine("\nEmployees By Parm:\n");
             foreach (var item in empFact.PrintAll(employeesbyParm))
@@ -55,13 +56,13 @@ namespace P1
 
             //Retrieve by Primary Key
 
-            Console.WriteLine("\nEmployee By Primary Key:\n");
             var empl = empFact.RetrieveByPrimaryKey(5);
+            Console.WriteLine("\nEmployee By Primary Key:\n");
             Console.WriteLine("{0:###} {1,15} {2,15} {3,15:C}", empl.ID, empl.Name, empl.Gender, empl.AnnualSalary);
 
 
-
-            var countryFact = new Factory<Country>(CountryConfig.Instance);
+            // Countries
+            var countryFact = DependencyFactory.Resolve<Factory<Country>>();
             var countries = countryFact.RetrieveAll();
 
             Console.WriteLine("\nCountries:\n");
@@ -71,19 +72,6 @@ namespace P1
             }
 
 
-        }
-
-        private static UnityContainer RegisterUnityContainer()
-        {
-            var uc = new UnityContainer();
-            
-            uc.RegisterInstance(EmployeeConfig.Instance);
-
-            uc.RegisterType<Factory<Employee>>();
-
-            uc.RegisterType<EmployeeFactory>();
-
-            return uc;
         }
 
 

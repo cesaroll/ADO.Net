@@ -1,4 +1,6 @@
-﻿namespace P1.Enity
+﻿using P1.Interface.Entity;
+
+namespace P1.Enity
 {
     public class Country : IEntity
     {
