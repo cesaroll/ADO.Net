@@ -1,36 +1,48 @@
 ﻿using System.Configuration;
 using System.Data.SqlClient;
+using P1.Interface.Util;
 
 namespace P1.Util
 {
-    public static class DBUtil
+    public class DBUtil : IDBUtil
     {
-        public static string WcfConnectionString
+        #region SingletonClass
+
+        private static readonly DBUtil _instance = new DBUtil();
+        private DBUtil()
+        {
+        }
+
+        public static DBUtil Instance
+        {
+            get { return _instance; }
+        }
+
+        #endregion
+
+        #region Connections
+
+        public string WcfConnectionString
         {
             get { return ConfigurationManager.ConnectionStrings["WCF"].ConnectionString; }
         }
 
 
-        #region Connection
-
         /// <summary>
         /// When using New DB Connection you are responsible for closing it.
         /// </summary>
-        public static SqlConnection DbConnection
+        public SqlConnection DbConnection
         {
-            get { return new SqlConnection(DBUtil.WcfConnectionString); }
+            get { return new SqlConnection(WcfConnectionString); }
         }
+        
 
-        #endregion
-
-        #region Command
-
-        public static SqlCommand DbCommand
+        public SqlCommand DbCommand
         {
             get { return new SqlCommand(); }
         }
-        #endregion
 
+        #endregion
 
     }
 }

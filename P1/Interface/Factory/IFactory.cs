@@ -11,6 +11,8 @@ namespace P1.Interface.Factory
 
         IEnumerable<T> RetrieveByParameter(IEnumerable<KeyValuePair<string, object>> parms);
 
+        bool InsertNew(T entity);
+
         IEnumerable<string> PrintAll(IEnumerable<T> items);
     }
 }

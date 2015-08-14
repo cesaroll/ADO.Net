@@ -64,6 +64,7 @@
     <Compile Include="Interface\Entity\IEntity.cs" />
     <Compile Include="Interface\Factory\IEmployeeFactory.cs" />
     <Compile Include="Interface\Factory\IFactory.cs" />
+    <Compile Include="Interface\Util\IDBUtil.cs" />
     <Compile Include="Interface\Util\ILogger.cs" />
     <Compile Include="Util\DBUtil.cs" />
     <Compile Include="Entity\Employee.cs" />

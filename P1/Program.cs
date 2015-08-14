@@ -60,7 +60,7 @@ namespace P1
             Console.WriteLine("\nEmployee By Primary Key:\n");
             Console.WriteLine("{0:###} {1,15} {2,15} {3,15:C}", empl.ID, empl.Name, empl.Gender, empl.AnnualSalary);
 
-
+            
             // Countries
             var countryFact = DependencyFactory.Resolve<Factory<Country>>();
             var countries = countryFact.RetrieveAll();
@@ -71,6 +71,32 @@ namespace P1
                 Console.WriteLine(item);
             }
 
+
+            //Insert Employee
+            Console.WriteLine("\n\nInput New Employee separated by Pipes:\n\n");
+            string strEmp = Console.ReadLine().Trim();
+
+            if (!string.IsNullOrEmpty(strEmp))
+            {
+                string[] val = strEmp.Split('|');
+
+                val = val.Select(x => x.Trim()).ToArray();
+
+                var newEmp = new Employee()
+                {
+                    Name = val[0],
+                    Gender = val[1],
+                    DoB = Convert.ToDateTime(val[2]),
+                    EmployeeType = int.Parse(val[3]),
+                    AnnualSalary = decimal.Parse(val[4]),
+                    HourlyPay = decimal.Parse(val[5]),
+                    HoursWorked = int.Parse(val[6]),
+                    City = val[7]
+                };
+
+                empFact.InsertNew(newEmp);
+            }
+           
 
         }
 

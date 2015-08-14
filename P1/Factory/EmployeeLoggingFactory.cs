@@ -6,6 +6,7 @@ using P1.Interface.Util;
 
 namespace P1.Factory
 {
+                
     public class EmployeeLoggingFactory : IEmployeeFactory
     {
         private readonly IEmployeeFactory employeeFact;
@@ -31,6 +32,12 @@ namespace P1.Factory
         {
             logger.WriteLogMsg("Retrieving Employee by parameter collection.");
             return employeeFact.RetrieveByParameter(parms);
+        }
+
+        public bool InsertNew(Employee entity)
+        {
+            logger.WriteLogMsg(string.Format("Inserting Employee: [{0}]", entity.Name));
+            return employeeFact.InsertNew(entity);
         }
 
         public IEnumerable<string> PrintAll(IEnumerable<Employee> items)

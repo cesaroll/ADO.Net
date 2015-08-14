@@ -26,27 +26,32 @@ namespace P1.Factory
             var uc = new UnityContainer();
 
             //TODO: Change to XML COnfiguration
+            //http://www.codeproject.com/Articles/143258/Revisiting-XML-Configurations-In-Unity
+            //https://msdn.microsoft.com/en-US/library/Ff647848.aspx
 
             /* ****************************************************** */
             /*             Common Registrations                       */
             /* ****************************************************** */
             uc.RegisterType<ILogger, Logger>();
+            uc.RegisterType<IDBUtil, DBUtil>();
 
-
+            uc.RegisterInstance(DBUtil.Instance);
+            
             /* ****************************************************** */
             /*            Employee Registrations                      */
             /* ****************************************************** */
-            uc.RegisterInstance(EmployeeConfig.Instance);
             uc.RegisterType<IEmployeeFactory, EmployeeFactory>();
             uc.RegisterType<IEmployeeFactory, EmployeeLoggingFactory>("Logging");
-
+            
+            uc.RegisterInstance(EmployeeConfig.Instance);
+            
             /* ****************************************************** */
             /*            Country Registrations                       */
             /* ****************************************************** */
-            uc.RegisterInstance(CountryConfig.Instance);
             uc.RegisterType<Factory<Country>>();
 
-
+            uc.RegisterInstance(CountryConfig.Instance);
+            
             /* ****************************************************** */
             /*                  Assign Container                      */
             /* ****************************************************** */

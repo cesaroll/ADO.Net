@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
-using P1.Config;
-using P1.Enity;
 using P1.Interface.Config;
 using P1.Interface.Entity;
 using P1.Interface.Factory;
-using P1.Util;
+using P1.Interface.Util;
 
 namespace P1.Factory
 {
@@ -17,14 +13,17 @@ namespace P1.Factory
     {
         #region Properties
 
-        protected IConfig<T> Config { get; set; }
+        protected virtual IConfig<T> Config { get; set; }
+
+        protected virtual IDBUtil DbUtil { get; set; }
 
         #endregion
 
         #region Constructors
-        public Factory(IConfig<T> config ) 
+        public Factory(IConfig<T> config, IDBUtil dbutil) 
         {
             Config = config;
+            DbUtil = dbutil;
         }
 
         #endregion
@@ -36,9 +35,9 @@ namespace P1.Factory
             //Employee Collection
             var collection = new List<T>();
 
-            using (var conn = DBUtil.DbConnection)
+            using (var conn = DbUtil.DbConnection)
             {
-                var cmd = DBUtil.DbCommand;
+                var cmd = DbUtil.DbCommand;
 
                 cmd.CommandText = Config.SelectAllQuery;
                 cmd.Connection = conn;
@@ -69,7 +68,7 @@ namespace P1.Factory
 
             var entity = default(T);
 
-            using (var conn = DBUtil.DbConnection)
+            using (var conn = DbUtil.DbConnection)
             {
                 cmd.Connection = conn;
                 conn.Open();
@@ -103,7 +102,7 @@ namespace P1.Factory
             //Employee Collection
             var collection = new List<T>();
 
-            using (var conn = DBUtil.DbConnection)
+            using (var conn = DbUtil.DbConnection)
             {
                 cmd.CommandText = queryBuilder.ToString();
                 cmd.Connection = conn;
@@ -123,6 +122,11 @@ namespace P1.Factory
 
             return collection;
 
+        }
+
+        public virtual bool InsertNew(T entity)
+        {
+            return false;
         }
 
         #endregion
