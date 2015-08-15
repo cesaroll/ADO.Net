@@ -33,8 +33,8 @@ namespace P9
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             using (var conn = DBUtil.Instance.DbConnection)
-            {   
-                var adapter = new SqlDataAdapter("spGetAllEmployees", conn);
+            {
+                var adapter = new SqlDataAdapter("spGetEmployee", conn);
                 adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 adapter.SelectCommand.Parameters.AddWithValue("@Id", TextBox1.Text);
 

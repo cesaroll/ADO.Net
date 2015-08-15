@@ -12,7 +12,7 @@
     
         <br />
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" />
+        <asp:Button ID="btnSearch" runat="server" Text="Search" />
         <br />
         <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

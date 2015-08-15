@@ -65,12 +65,20 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CachingDataSet.aspx" />
     <Content Include="DataAdapter.aspx" />
     <Content Include="DataSetPage.aspx" />
     <Content Include="NextResult.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CachingDataSet.aspx.cs">
+      <DependentUpon>CachingDataSet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CachingDataSet.aspx.designer.cs">
+      <DependentUpon>CachingDataSet.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DataAdapter.aspx.cs">
       <DependentUpon>DataAdapter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
