@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P1", "P1\P1.csproj", "{56117EF1-6AA5-4E14-8D4B-573F686A333D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBLib", "DBLib\DBLib.csproj", "{E4C77612-2DCD-467C-BBD8-5232D6B596F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P9", "P9\P9.csproj", "{C9A6D452-05A1-4387-8EC2-9CD4EF229472}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{56117EF1-6AA5-4E14-8D4B-573F686A333D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56117EF1-6AA5-4E14-8D4B-573F686A333D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56117EF1-6AA5-4E14-8D4B-573F686A333D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4C77612-2DCD-467C-BBD8-5232D6B596F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C77612-2DCD-467C-BBD8-5232D6B596F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4C77612-2DCD-467C-BBD8-5232D6B596F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4C77612-2DCD-467C-BBD8-5232D6B596F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A6D452-05A1-4387-8EC2-9CD4EF229472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A6D452-05A1-4387-8EC2-9CD4EF229472}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A6D452-05A1-4387-8EC2-9CD4EF229472}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A6D452-05A1-4387-8EC2-9CD4EF229472}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

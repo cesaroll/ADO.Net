@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using Microsoft.Practices.Unity;
 using P1.Config;
@@ -97,6 +99,19 @@ namespace P1
                 empFact.InsertNew(newEmp);
             }
            
+
+
+
+            //Display Data Table
+
+            var empDTFact = new EmployeeDataTableFactory();
+
+            DataTable table = empDTFact.RetrieveAllAsDataTable();
+
+            foreach (DataRow row in table.Rows)
+            {
+                Console.WriteLine("{0,10} {1,15}", row["Id"], row["Name"]);
+            }
 
         }
 
