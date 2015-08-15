@@ -65,10 +65,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataAdapter.aspx" />
     <Content Include="NextResult.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAdapter.aspx.cs">
+      <DependentUpon>DataAdapter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataAdapter.aspx.designer.cs">
+      <DependentUpon>DataAdapter.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NextResult.aspx.cs">
       <DependentUpon>NextResult.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
