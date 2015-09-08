@@ -1,8 +1,7 @@
 ﻿using System.Data;
-using P1.Enity;
-using P1.Interface.Entity;
+using Base.Interface.Entity;
 
-namespace P1.Interface.Config
+namespace Base.Interface.Config
 {
     public interface IConfig<T> where T : IEntity, new()
     {

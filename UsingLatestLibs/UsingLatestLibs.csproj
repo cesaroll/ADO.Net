@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E4C77612-2DCD-467C-BBD8-5232D6B596F9}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{108C30FF-BCBE-48BB-91CC-D1BE8E42ECBA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DBLib</RootNamespace>
-    <AssemblyName>DBLib</AssemblyName>
+    <RootNamespace>UsingLatestLibs</RootNamespace>
+    <AssemblyName>UsingLatestLibs</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,17 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Practices.Unity">
-      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity.Configuration">
-      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
-      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,27 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\CountryConfig.cs" />
-    <Compile Include="Config\EmployeeConfig.cs" />
-    <Compile Include="Entity\Country.cs" />
-    <Compile Include="Entity\Employee.cs" />
-    <Compile Include="Factory\DependencyFactory.cs" />
-    <Compile Include="Factory\EmployeeDataTableFactory.cs" />
-    <Compile Include="Factory\EmployeeFactory.cs" />
-    <Compile Include="Factory\EmployeeLoggingFactory.cs" />
-    <Compile Include="Interface\Factory\IEmployeeFactory.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interface\Entity\" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBBaseLib\DBBaseLib.csproj">
       <Project>{d58f5da9-eb52-42a9-a2cc-d2463436c612}</Project>
       <Name>DBBaseLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBLib\DBLib.csproj">
+      <Project>{e4c77612-2dcd-467c-bbd8-5232d6b596f9}</Project>
+      <Name>DBLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

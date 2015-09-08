@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using P1.Config;
-using P1.Enity;
-using P1.Interface.Factory;
-using P1.Interface.Util;
+using Base.Interface.Util;
+using DB.Entity;
+using DB.Interface.Factory;
 
-namespace P1.Factory
+
+namespace DB.Factory
 {
                 
     public class EmployeeLoggingFactory : IEmployeeFactory

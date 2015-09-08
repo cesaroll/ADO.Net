@@ -1,4 +1,4 @@
-﻿namespace P1.Interface.Entity
+﻿namespace Base.Interface.Entity
 {
     public interface IEntity
     {

@@ -1,6 +1,6 @@
-﻿using P1.Interface.Entity;
+﻿using Base.Interface.Entity;
 
-namespace P1.Enity
+namespace DB.Entity
 {
     public class Country : IEntity
     {

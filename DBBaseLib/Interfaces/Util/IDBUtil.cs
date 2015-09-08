@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace P1.Interface.Util
+namespace Base.Interface.Util
 {
     public interface IDBUtil
     {

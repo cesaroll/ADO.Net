@@ -1,8 +1,8 @@
 ﻿using System.Configuration;
 using System.Data.SqlClient;
-using P1.Interface.Util;
+using Base.Interface.Util;
 
-namespace P1.Util
+namespace Base.Util
 {
     public class DBUtil : IDBUtil
     {

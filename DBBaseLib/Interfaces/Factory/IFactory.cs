@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using P1.Interface.Entity;
+using Base.Interface.Entity;
 
-namespace P1.Interface.Factory
+namespace Base.Interface.Factory
 {
     public interface IFactory<T> where T : IEntity, new() 
     {

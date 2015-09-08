@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using P1.Enity;
-using P1.Interface.Config;
-using P1.Interface.Entity;
+﻿using System.Data;
+using Base.Interface.Config;
+using Base.Interface.Entity;
 
-namespace P1.Config
+namespace Base.Config
 {
     public abstract class Config<T> : IConfig<T> where T : IEntity, new()
     {

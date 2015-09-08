@@ -2,12 +2,12 @@
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using P1.Interface.Config;
-using P1.Interface.Entity;
-using P1.Interface.Factory;
-using P1.Interface.Util;
+using Base.Interface.Config;
+using Base.Interface.Entity;
+using Base.Interface.Factory;
+using Base.Interface.Util;
 
-namespace P1.Factory
+namespace Base.Factory
 {
     public class Factory<T> : IFactory<T> where T : IEntity, new() 
     {

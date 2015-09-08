@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Dynamic;
 using System.Security.Permissions;
-using P1.Config;
-using P1.Interface.Entity;
+using Base.Interface.Entity;
 
-namespace P1.Enity
+namespace DB.Entity
 {
     public class Employee : IEntity
     {

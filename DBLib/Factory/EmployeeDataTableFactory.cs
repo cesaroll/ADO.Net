@@ -1,9 +1,9 @@
 ﻿using System.Data;
 
-namespace P1.Factory
+namespace DB.Factory
 {
     /// <summary>
-    /// This is an example of how to se Dtat Table
+    /// This is an example of how to use Data Table
     /// </summary>
     public class EmployeeDataTableFactory : EmployeeFactory
     {

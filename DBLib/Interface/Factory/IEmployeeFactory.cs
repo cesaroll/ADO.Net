@@ -1,7 +1,7 @@
-﻿using P1.Enity;
-using P1.Factory;
+﻿using Base.Interface.Factory;
+using DB.Entity;
 
-namespace P1.Interface.Factory
+namespace DB.Interface.Factory
 {
     public interface IEmployeeFactory : IFactory<Employee>
     {

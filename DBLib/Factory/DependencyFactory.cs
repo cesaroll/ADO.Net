@@ -1,11 +1,13 @@
-﻿using Microsoft.Practices.Unity;
-using P1.Config;
-using P1.Enity;
-using P1.Interface.Factory;
-using P1.Interface.Util;
-using P1.Util;
+﻿using Base.Factory;
+using Base.Interface.Util;
+using Base.Util;
+using DB.Config;
+using DB.Entity;
+using DB.Interface.Factory;
+using Microsoft.Practices.Unity;
 
-namespace P1.Factory
+
+namespace DB.Factory
 {
     //Wrapping Unity
     public class DependencyFactory

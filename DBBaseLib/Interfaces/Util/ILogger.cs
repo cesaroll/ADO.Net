@@ -1,4 +1,4 @@
-﻿namespace P1.Interface.Util
+﻿namespace Base.Interface.Util
 {
     public interface ILogger
     {

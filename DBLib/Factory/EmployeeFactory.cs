@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
-using P1.Config;
-using P1.Enity;
-using P1.Interface.Config;
-using P1.Interface.Entity;
-using P1.Interface.Factory;
-using P1.Interface.Util;
-using P1.Util;
+using Base.Factory;
+using Base.Interface.Config;
+using Base.Interface.Util;
+using DB.Entity;
+using DB.Interface.Factory;
 
-namespace P1.Factory
+
+namespace DB.Factory
 {
     public class EmployeeFactory : Factory<Employee>, IEmployeeFactory
     {

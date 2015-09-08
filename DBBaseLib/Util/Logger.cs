@@ -1,7 +1,7 @@
 ﻿using System;
-using P1.Interface.Util;
+using Base.Interface.Util;
 
-namespace P1.Util
+namespace Base.Util
 {
     public class Logger : ILogger
     {

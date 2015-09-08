@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Data;
-using P1.Enity;
-using P1.Interface.Config;
+using Base.Config;
+using Base.Interface.Config;
+using DB.Entity;
 
-namespace P1.Config
+namespace DB.Config
 {
     public class CountryConfig : Config<Country>
     {
